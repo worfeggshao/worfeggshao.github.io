@@ -1,0 +1,53 @@
+{
+	"data": [
+		{
+			"name": "小明",
+			"chinese": "88",
+			"math": "90",
+			"English": "85",
+			"PE": "92"
+		}, {
+			"name": "小花",
+			"chinese": "76",
+			"math": "83",
+			"English": "92",
+			"PE": "87"
+		}, {
+			"name": "圆圆",
+			"chinese": "80",
+			"math": "96",
+			"English": "77",
+			"PE": "90"
+		}, {
+			"name": "小虹",
+			"chinese": "82",
+			"math": "68",
+			"English": "80",
+			"PE": "85"
+		}, {
+			"name": "小方",
+			"chinese": "85",
+			"math": "78",
+			"English": "66",
+			"PE": "89"
+		}, {
+			"name": "小伟",
+			"chinese": "80",
+			"math": "91",
+			"English": "79",
+			"PE": "84"
+		}, {
+			"name": "糖糖",
+			"chinese": "88",
+			"math": "85",
+			"English": "80",
+			"PE": "86"
+		}, {
+			"name": "杉杉",
+			"chinese": "78",
+			"math": "75",
+			"English": "62",
+			"PE": "80"
+		}
+	]
+}

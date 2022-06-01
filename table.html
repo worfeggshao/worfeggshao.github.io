@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <style>
+    pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
+    .string { color: green; }
+    .number { color: darkorange; }
+    .boolean { color: blue; }
+    .null { color: magenta; }
+    .key { color: red; }
+
+    .showinfo{
+        position: absolute;
+        background-color: #eef1f8;
+        width: 200px;
+        padding: 5px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        display: none;
+    }
+    .showinfo pre{
+        padding: 5px;
+        border: 1px solid #ccc;
+        margin:0;
+    }
+    table,th,td{
+        border:1px solid blue;
+    }
+</style>
+<script src="./js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $(".show-rough").mouseover(function(){
+            var left = $(this).offset().left + $(this).width() +20;//计算div显示位置
+            var top = $(this).offset().top + 20;
+            var _jsonDate = $.parseJSON($(this).text());
+            var showJson = syntaxHighlight(_jsonDate);
+            $("#show-info").css({"left":left,"top":top}).show();
+            $("#show-pre").html(showJson);
+        });
+        $(".show-rough").mouseout(function(){
+            $("#show-info").hide().html();
+            $("#show-pre").html();
+        })
+    });
+    //处理json数据，采用正则过滤出不同类型参数
+	function syntaxHighlight(json) {
+    if (typeof json != 'string') {
+        json = JSON.stringify(json, undefined, 2);
+    }
+    json = json.replace(/&/g, '&').replace(/</g, '<').replace(/>/g, '>');
+    return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function(match) {
+        var cls = 'number';
+        if (/^"/.test(match)) {
+            if (/:$/.test(match)) {
+                cls = 'key';
+            } else {
+                cls = 'string';
+            }
+        } else if (/true|false/.test(match)) {
+            cls = 'boolean';
+        } else if (/null/.test(match)) {
+            cls = 'null';
+        }
+        return '<span class="' + cls + '">' + match + '</span>';
+    });
+};
+</script>
+</head>
+<body>
+<table>
+    <thead>
+        <tr>
+            <th>country</th>
+            <th>json</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>time1</td>
+            <td class="show-rough">{'time': '2022-05-09', 'value': [{'name': 'Vietnam', 'value': [30, 'Vietnam']}, {'name': 'India', 'value': [452, 'India']},
+                                         {'name': 'China', 'value': [3901, 'China']},
+                                         {'name': 'Russia', 'value': [106, 'Russia']},
+                                         {'name': 'Germany', 'value': [17, 'Germany']},
+                                         {'name': 'France', 'value': [17, 'France']},
+                                         {'name': 'United Kingdom', 'value': [216, 'United Kingdom']},
+                                         {'name': 'Japan', 'value': [23, 'Japan']},
+                                         {'name': 'United States', 'value': [309, 'United States']}]},</td>
+        </tr>
+        <tr>
+            <td>time2</td>
+            <td class="show-rough">{'time': '2022-05-10', 'value': [
+        {'name': 'Vietnam', 'value': [33, 'Vietnam']}, {'name': 'India', 'value': [458, 'India']},
+        {'name': 'China', 'value': [3918, 'China']}, {'name': 'Russia', 'value': [107, 'Russia']},
+        {'name': 'Germany', 'value': [19, 'Germany']}, {'name': 'France', 'value': [17, 'France']},
+        {'name': 'United Kingdom', 'value': [22, 'United Kingdom']}, {'name': 'Japan', 'value': [22, 'Japan']},
+        {'name': 'United States', 'value': [1334, 'United States']}]},</td>
+        </tr>
+    </tbody>
+</table>
+<div id="show-info" class="showinfo">
+    <pre id="show-pre">
+
+</pre>
+</div>
+</body>
+</html>
