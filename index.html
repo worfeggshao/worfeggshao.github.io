@@ -2,7 +2,7 @@
 <html>
 <head> 
 <meta charset="utf-8"> 
-<title>html5</title> 
+<title>Various statistical methods show the changes of newly added blacklist IPS in different countries</title> 
 <style>
 body { 
     margin: 0px; 
@@ -23,6 +23,8 @@ a.red:visited{color: #ff0000;font-size:12px;}
 </head> 
 <body> 
 <h4>Function selection</h4> 
+
+</h5>Please select the view mode and data to be observed in the scroll selection bar</h5>
 <script language="JavaScript" type="text/javascript">
 function montharr(m0, m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11)
 {
@@ -131,14 +133,14 @@ document.write("<BR><BR><BR><BR>")
 calendar();
 //--> 
 var marqueeContent=new Array(); 
-marqueeContent[0]="<a href=scroll.html target=_blank>Scroll display interface one day</a>"; 
-marqueeContent[1]="<a href=table.html target=_blank>IP address data one week</a>"; 
-marqueeContent[2]="<a href=blackIP.html target=_blank>map 1 week</a>"; 
-marqueeContent[3]="<a href=black1.html target=_blank> map 1 day</a>"; 
+marqueeContent[0]="<a href=scroll.html target=_blank>Newly added blacklist IP within one day line up by the order of (IP, source, time, country)</a>"; 
+marqueeContent[1]="<a href=table.html target=_blank>Statistics on the number of new IP addresses in each country within a week (number of countries per day)</a>"; 
+marqueeContent[2]="<a href=blackIP.html target=_blank>Changes in the number of new blacklist IPS within a week (Map and bar chart statistical format)</a>"; 
+marqueeContent[3]="<a href=black1.html target=_blank> Statistics of newly added blacklist IPS(Total quantity statistics as of the current day)</a>"; 
 var marqueeInterval=new Array(); 
 var marqueeId=0; 
-var marqueeDelay=2000; 
-var marqueeHeight=20; 
+var marqueeDelay=4000; 
+var marqueeHeight=60; 
 function initMarquee() { 
     var str=marqueeContent[0]; 
     document.write('<div id="marqueeBox" style="overflow:hidden;width:250px;height:'+marqueeHeight+'px" οnmοuseοver="clearInterval(marqueeInterval[0])" οnmοuseοut="marqueeInterval[0]=setInterval(\'startMarquee()\',marqueeDelay)"><div>'+str+'</div></div>'); 
