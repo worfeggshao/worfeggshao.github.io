@@ -3,6 +3,7 @@
 <head>
 <meta http-equiv="refresh" content="20">
 <meta charset="utf-8">
+<script src="./js/jquery.min.js"></script>
 <title>Newly added blacklist IP within one day (IP, source, time, country)</title>
 <style>
 @keyframes move
@@ -29,6 +30,8 @@
 <body>
 <h4>Newly added blacklist IP within one day line up by the order of (IP, source, time, country)</h4> 
 <h5>time 2022-04-19</h5>
+      <button id="btn1" style="border = 1px soild red" >download data used by this page</button>
+      <button id="btn2">download orginal source</button>
 <DIV class="picTab">
 <div  class="topDiv">
 <div>"112.248.0.200
@@ -101,5 +104,20 @@ urlhaus
 China"</div>
 </div>
 </DIV>
+<script type="text/javascript">
+			var $eleBtn1 = $("#btn1");
+			$eleBtn1.click(function(){
+				window.location.href ="https://github.com/worfeggshao/worfeggshao.github.io/blob/2643bb4c200a014a86c0c9def458a37febc22901/data/"
+                //window.open("https://github.com/worfeggshao/worfeggshao.github.io/blob/2643bb4c200a014a86c0c9def458a37febc22901/data/2022-05-09%2019.json");
+			});
+			//表单下载
+			var $eleBtn2 = $("#btn2");
+			$eleBtn2.click(function(){
+				var $eleForm = $("<form method='get' </form>");
+	$eleForm.attr("action","https://github.com/worfeggshao/worfeggshao.github.io/blob/2643bb4c200a014a86c0c9def458a37febc22901/information/");
+				$(document.body).append($eleForm);
+				$eleForm.submit();
+			})
+		</script>
 </body>
 </html>

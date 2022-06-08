@@ -29,7 +29,7 @@
         border:1px solid blue;
     }
 </style>
-<script src="./js/jquery-1.8.3.min.js"></script>
+<script src="./js/jquery.min.js"></script>
 <script type="text/javascript">
 
     $(document).ready(function(){
@@ -73,6 +73,8 @@
 <body>
 <h4>Statistics on the number of new IP addresses in each country within a week (number of countries per day)</h4> 
 <h5>time from 2022-05-05 to 2022-05-11</h5>
+      <button id="btn1" style="border = 1px soild red" >download data used by this page</button>
+      <button id="btn2">download orginal source</button>
 <table>
     <thead>
         <tr>
@@ -167,5 +169,20 @@
 
 </pre>
 </div>
+<script type="text/javascript">
+			var $eleBtn1 = $("#btn1");
+			$eleBtn1.click(function(){
+				window.location.href ="https://github.com/worfeggshao/worfeggshao.github.io/blob/2643bb4c200a014a86c0c9def458a37febc22901/data/2022-05-09%2019.json"
+                //window.open("https://github.com/worfeggshao/worfeggshao.github.io/blob/2643bb4c200a014a86c0c9def458a37febc22901/data/2022-05-09%2019.json");
+			});
+			//表单下载
+			var $eleBtn2 = $("#btn2");
+			$eleBtn2.click(function(){
+				var $eleForm = $("<form method='get' </form>");
+	$eleForm.attr("action","https://github.com/worfeggshao/worfeggshao.github.io/blob/2643bb4c200a014a86c0c9def458a37febc22901/data/2022-05-09%2019.json");
+				$(document.body).append($eleForm);
+				$eleForm.submit();
+			})
+		</script>
 </body>
 </html>
