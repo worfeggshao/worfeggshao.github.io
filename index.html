@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
-<head> 
-<meta charset="utf-8"> 
-<title>Various statistical methods show the changes of newly added blacklist IPS in different countries</title> 
-<style>
+	<head>
+		<meta charset="UTF-8">
+		<title>cyber attack tendency by visualization of OSINT information</title>
+        <style>
 body { 
     margin: 0px; 
     font-size: 12px; 
@@ -19,12 +19,11 @@ a.red:hover{color: #ff0000;font-size:12px;}
 a.red:visited{color: #ff0000;font-size:12px;} 
 #marqueeBox{background:#f7f7f7;border:1px solid silver;padding:1px;text-align:center;margin:0 auto;} 
 --> 
-</style> 
-</head> 
-<body> 
-<h4>Function selection</h4> 
+</style>
+</head>
+<body>
 
-</h5>Please select the view mode and data to be observed in the scroll selection bar</h5>
+<h4>Provide calendar and add time selection function in the future.</h4> 
 <script language="JavaScript" type="text/javascript">
 function montharr(m0, m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11)
 {
@@ -131,46 +130,28 @@ onLoad="startclock(); timerONE=window.setTimeout" TEXT="#000000" TOPMARGIN="0">
 <!--
 document.write("<BR><BR><BR><BR>")
 calendar();
-//--> 
-var marqueeContent=new Array(); 
-marqueeContent[0]="<a href=scroll.html target=_blank>Newly added blacklist IP within one day line up by the order of (IP, source, time, country)</a>"; 
-marqueeContent[1]="<a href=table.html target=_blank>Statistics on the number of new IP addresses in each country within a week (number of countries per day)</a>"; 
-marqueeContent[2]="<a href=blackIP.html target=_blank>Changes in the number of new blacklist IPS within a week (Map and bar chart statistical format)</a>"; 
-marqueeContent[3]="<a href=black1.html target=_blank> Statistics of newly added blacklist IPS(Total quantity statistics as of the current day)</a>"; 
-var marqueeInterval=new Array(); 
-var marqueeId=0; 
-var marqueeDelay=4000; 
-var marqueeHeight=60; 
-function initMarquee() { 
-    var str=marqueeContent[0]; 
-    document.write('<div id="marqueeBox" style="overflow:hidden;width:250px;height:'+marqueeHeight+'px" οnmοuseοver="clearInterval(marqueeInterval[0])" οnmοuseοut="marqueeInterval[0]=setInterval(\'startMarquee()\',marqueeDelay)"><div>'+str+'</div></div>'); 
-    marqueeId++; 
-    marqueeInterval[0]=setInterval("startMarquee()",marqueeDelay); 
-} 
-function startMarquee() { 
-    var str=marqueeContent[marqueeId]; 
-    marqueeId++; 
-    if(marqueeId>=marqueeContent.length) marqueeId=0; 
-    if(document.getElementById("marqueeBox").childNodes.length==1) { 
-    var nextLine=document.createElement('DIV'); 
-    nextLine.innerHTML=str; 
-    document.getElementById("marqueeBox").appendChild(nextLine); 
-    } 
-    else { 
-        document.getElementById("marqueeBox").childNodes[0].innerHTML=str; 
-        document.getElementById("marqueeBox").appendChild(document.getElementById("marqueeBox").childNodes[0]); 
-        document.getElementById("marqueeBox").scrollTop=0; 
-    } 
-    clearInterval(marqueeInterval[1]); 
-    marqueeInterval[1]=setInterval("scrollMarquee()",20); 
-} 
-function scrollMarquee() { 
-    document.getElementById("marqueeBox").scrollTop++; 
-   if(document.getElementById("marqueeBox").scrollTop%marqueeHeight==(marqueeHeight-1)){ 
-    clearInterval(marqueeInterval[1]); 
-    } 
-} 
-initMarquee(); 
-</script> 
-</body>
+
+</script>
+<h3>View the update status of each page</h3>
+    <div>Newly added blacklist IP within one day line up by the order of (IP, source, time, country)</div>
+        This pageprovides the newly added blacklist IP data and some related information
+		<a href="scroll.html">go to</a>
+	
+    <div>Statistics on the number of new IP addresses in each country within a week (number of countries per day)</div>
+		This page gives the data that page 2 dynamically displays according to the time unit
+		<a href="table.html">go to</a>
+	
+    
+    <div>Changes in the number of new blacklist IPS within a week (Map and bar chart statistical format)</div>
+		This page shows the changes in the number of newly added blacklist IPS every day in a week. As shown in the figure, the top represents the time (which day) and is unified with the map and bar chart
+		<a href="blackIP.html">go to</a>
+	
+    
+    <div>Statistics of newly added blacklist IPS(Total quantity statistics as of the current day)</div>
+		This page shows the total number of newly added blacklist IP distributions (the number of all IPS) so far (time is displayed on the page). The statistical time of the database starts on March 3rd, 2022.
+		<a href="black1.html">go to</a>
+	
+    </body>
+
+
 </html>
